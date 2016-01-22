@@ -1,16 +1,20 @@
+// Vendor Libraries
 import React from 'react'
 import { render } from 'react-dom'
-import {Router, Route, browserHistory} from 'react-router'
-import Login from './login'
+import { Router, IndexRoute, Route, browserHistory } from 'react-router'
+
+// Components
+import Home from './home/home'
+
+// Styles
 import '~/app/assets/styles/app'
 
 class App extends React.Component {
   render() {
-    const { children } = this.props;
+    const { children } = this.props
 
     return (
       <div className='container'>
-        Hello World
         { children }
       </div>
     )
@@ -19,8 +23,8 @@ class App extends React.Component {
 
 render((
   <Router history={browserHistory}>
-    <Route path="/" component={ App }>
-        <Route path="login" component={ Login }></Route>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home} />
     </Route>
   </Router>
-), document.getElementById('react'));
+), document.getElementById('react'))
