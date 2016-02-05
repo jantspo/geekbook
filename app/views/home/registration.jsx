@@ -25,8 +25,8 @@ class Registration extends React.Component {
   };
 
   submitForm(event) {
-    event.preventDefault()
-    const { email, email_confirm, first_name, last_name, password } = this.props
+    event.preventDefault();
+    const { email, email_confirm, first_name, last_name, password } = this.props;
 
     if (email === email_confirm) {
       this.props.dispatch(

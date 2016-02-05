@@ -13,15 +13,15 @@ class Login extends React.Component {
   };
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = { authMessage: '' }
   }
 
   login(ev) {
-    ev.preventDefault()
+    ev.preventDefault();
 
     const email = this.refs.email.value,
-          password= this.refs.password.value
+          password= this.refs.password.value;
 
     this.props.dispatch(loginUser(email, password)).
     then(::this.redirectLogin).
@@ -31,13 +31,13 @@ class Login extends React.Component {
   }
 
   redirectLogin(action) {
-    localStorage.setItem('geekbook_user', action.result.user)
-    let user = jwt.decode(action.result.user)
+    localStorage.setItem('geekbook_user', action.result.user);
+    let user = jwt.decode(action.result.user);
     this.props.dispatch(routeActions.push(`/${user.user.token}`))
   }
 
   render() {
-    const { disabled } = this.props
+    const { disabled } = this.props;
 
     return (
       <nav className='login-nav'>

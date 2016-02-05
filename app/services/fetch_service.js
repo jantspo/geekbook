@@ -3,7 +3,7 @@ import 'whatwg-fetch'
 const headers = {
   'Content-Type': 'application/json',
   'Accept': '*/*'
-}
+};
 
 export function post(url, body) {
   return fetch(url, {
@@ -15,7 +15,7 @@ export function post(url, body) {
       return response.json()
     } else {
       return response.json().then(result => {
-        let error = result.errors[0].message
+        let error = result.errors[0].message;
         throw new Error(error)
       })
     }
